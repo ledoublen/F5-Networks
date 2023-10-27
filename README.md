@@ -1,19 +1,24 @@
 # F5-Networks
+## Qualification de l'incident
+* Première apparition du problème ? (Date et heure)
+* Cela a-t-il déjà fonctionné ?
+* Avez-vous connaissance d'un changement dans l'infrastructure qui pourrait 
+* Tentatives de résolution ?
 
-## Capture réseau
+## Traces
+### Capture réseau
+Prendre une capture de paquets :\
 `tcpdump -nni 0.0:nnn host #ClientIP# -s0 -vvvw /var/tmp/$HOSTNAME.pcap`
 
-## Qkview
-### Classique
-``` qkview -f /var/tmp/$HOSTNAME.qkview --progress-bar``` 
-> -f pour enregistrer
-> --progress-bar comme son nom l'indique
-### Unlimited snaplength
+### Qkview
+Générer un fichier de diagnostique (Qkview) :\
 `qkview -s0 -f /var/tmp/$HOSTNAME.qkview --progress-bar`
 
-## Logs
+### Logs
 `tar -zxvf /var/log`
-## Collecte d'informations
-* Quand le problème est apparu pour la première fois ?
-* Est-ce une nouvelle implémentation ?
-* Tentatives de résolution ?
+
+## Joindre les traces
+Puis nous transmettre les éléments :
+* Capture(s) réseau
+* Qkview(s)
+* Archive .tgz des logs
